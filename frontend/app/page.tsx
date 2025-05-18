@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import ServiceCard from "@/components/ServiceCard";
+import TestimonialCard from "@/components/TestimonialCard";
 
 const featuredServices = [
   {
@@ -163,6 +164,74 @@ export default function Home() {
                 </p>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="relative bg-primary py-24">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-2xl text-center">
+            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+              Dipercaya oleh Ribuan Pelanggan
+            </h2>
+            <p className="mt-6 text-lg leading-8 text-white/80">
+              SerabutAja telah membantu menyelesaikan berbagai pekerjaan dengan kualitas terbaik
+            </p>
+          </div>
+
+          <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 text-center lg:max-w-none lg:grid-cols-4">
+            <div>
+              <div className="text-4xl font-bold tracking-tight text-white">5000+</div>
+              <div className="mt-4 text-base text-white/80">Pelanggan Puas</div>
+            </div>
+            <div>
+              <div className="text-4xl font-bold tracking-tight text-white">1000+</div>
+              <div className="mt-4 text-base text-white/80">Tukang Profesional</div>
+            </div>
+            <div>
+              <div className="text-4xl font-bold tracking-tight text-white">8000+</div>
+              <div className="mt-4 text-base text-white/80">Proyek Selesai</div>
+            </div>
+            <div>
+              <div className="text-4xl font-bold tracking-tight text-white">4.8/5</div>
+              <div className="mt-4 text-base text-white/80">Rating Kepuasan</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="py-24 bg-gray-50">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-2xl text-center">
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+              Apa Kata Mereka?
+            </h2>
+            <p className="mt-6 text-lg leading-8 text-gray-600">
+              Dengarkan langsung dari pelanggan yang telah menggunakan layanan SerabutAja
+            </p>
+          </div>
+
+          <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-6 sm:gap-8 lg:mt-20 lg:max-w-none lg:grid-cols-3">
+            <TestimonialCard
+              content="Sangat puas dengan layanan tukang dari SerabutAja. Pekerjaannya rapi dan sesuai dengan yang diharapkan. Proses pemesanan juga sangat mudah!"
+              author="Budi Santoso"
+              role="Pemilik Rumah"
+              rating={5}
+            />
+            <TestimonialCard
+              content="Tukang yang datang sangat profesional dan tepat waktu. Harga yang ditawarkan juga sangat transparan. Recommended!"
+              author="Siti Rahayu"
+              role="Pengusaha"
+              rating={5}
+            />
+            <TestimonialCard
+              content="Aplikasi yang sangat membantu untuk mencari tukang terpercaya. Kualitas pekerjaan memuaskan dan sesuai dengan budget."
+              author="Ahmad Hidayat"
+              role="Arsitek"
+              rating={4}
+            />
           </div>
         </div>
       </section>
