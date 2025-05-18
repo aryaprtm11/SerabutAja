@@ -1,6 +1,34 @@
 import Image from "next/image";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
+import ServiceCard from "@/components/ServiceCard";
+
+const featuredServices = [
+  {
+    title: "Perbaikan Rumah",
+    description: "Layanan perbaikan untuk berbagai kerusakan di rumah Anda, dari atap bocor hingga kelistrikan.",
+    icon: "/icons/home-repair.svg",
+    href: "/layanan/perbaikan-rumah"
+  },
+  {
+    title: "Renovasi",
+    description: "Ubah tampilan rumah Anda dengan layanan renovasi profesional dan terpercaya.",
+    icon: "/icons/renovation.svg",
+    href: "/layanan/renovasi"
+  },
+  {
+    title: "Taman & Lansekap",
+    description: "Percantik halaman rumah Anda dengan jasa perawatan taman dan lansekap.",
+    icon: "/icons/garden.svg",
+    href: "/layanan/taman-lansekap"
+  },
+  {
+    title: "Instalasi",
+    description: "Pasang berbagai peralatan rumah tangga dengan bantuan teknisi berpengalaman.",
+    icon: "/icons/installation.svg",
+    href: "/layanan/instalasi"
+  }
+];
 
 export default function Home() {
   return (
@@ -51,6 +79,93 @@ export default function Home() {
           />
         </div>
       </div>
+
+      {/* Featured Services Section */}
+      <section className="py-24 bg-gray-50">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-2xl text-center">
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+              Layanan Unggulan Kami
+            </h2>
+            <p className="mt-6 text-lg leading-8 text-gray-600">
+              Temukan berbagai layanan profesional untuk membantu menyelesaikan pekerjaan Anda dengan cepat dan berkualitas
+            </p>
+          </div>
+          <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-6 sm:gap-8 lg:mt-20 lg:max-w-none lg:grid-cols-4">
+            {featuredServices.map((service) => (
+              <ServiceCard
+                key={service.title}
+                title={service.title}
+                description={service.description}
+                icon={service.icon}
+                href={service.href}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works Section */}
+      <section className="py-24">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-2xl text-center">
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+              Cara Kerja SerabutAja
+            </h2>
+            <p className="mt-6 text-lg leading-8 text-gray-600">
+              Dapatkan bantuan profesional dengan mudah melalui 4 langkah sederhana
+            </p>
+          </div>
+
+          <div className="mx-auto mt-16 max-w-5xl">
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+              {/* Step 1 */}
+              <div className="relative pl-16">
+                <div className="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-full bg-primary">
+                  <span className="text-lg font-semibold text-white">1</span>
+                </div>
+                <h3 className="text-lg font-semibold text-gray-900">Pilih Layanan</h3>
+                <p className="mt-2 text-gray-600">
+                  Pilih jenis layanan yang Anda butuhkan dari berbagai kategori yang tersedia
+                </p>
+              </div>
+
+              {/* Step 2 */}
+              <div className="relative pl-16">
+                <div className="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-full bg-primary">
+                  <span className="text-lg font-semibold text-white">2</span>
+                </div>
+                <h3 className="text-lg font-semibold text-gray-900">Isi Detail</h3>
+                <p className="mt-2 text-gray-600">
+                  Berikan informasi tentang pekerjaan yang perlu dilakukan
+                </p>
+              </div>
+
+              {/* Step 3 */}
+              <div className="relative pl-16">
+                <div className="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-full bg-primary">
+                  <span className="text-lg font-semibold text-white">3</span>
+                </div>
+                <h3 className="text-lg font-semibold text-gray-900">Terima Penawaran</h3>
+                <p className="mt-2 text-gray-600">
+                  Dapatkan penawaran dari tukang profesional terverifikasi
+                </p>
+              </div>
+
+              {/* Step 4 */}
+              <div className="relative pl-16">
+                <div className="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-full bg-primary">
+                  <span className="text-lg font-semibold text-white">4</span>
+                </div>
+                <h3 className="text-lg font-semibold text-gray-900">Pekerjaan Selesai</h3>
+                <p className="mt-2 text-gray-600">
+                  Tukang akan datang dan menyelesaikan pekerjaan sesuai kesepakatan
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
   );
 }
