@@ -3,209 +3,335 @@ import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import ServiceCard from "@/components/ServiceCard";
 import TestimonialCard from "@/components/TestimonialCard";
+import Footer from "@/components/Footer";
+import { Icon } from "@/components/Icon";
+import { appStoreIcons, workflowIcons, trustIcons, navigationIcons } from "@/config/icons";
+import type { IconType } from "@/components/Icon";
 
 const featuredServices = [
   {
     title: "Perbaikan Rumah",
     description: "Layanan perbaikan untuk berbagai kerusakan di rumah Anda, dari atap bocor hingga kelistrikan.",
-    icon: "/icons/home-repair.svg",
+    icon: workflowIcons.tools,
     href: "/layanan/perbaikan-rumah"
   },
   {
     title: "Renovasi",
     description: "Ubah tampilan rumah Anda dengan layanan renovasi profesional dan terpercaya.",
-    icon: "/icons/renovation.svg",
+    icon: workflowIcons.hammer,
     href: "/layanan/renovasi"
   },
   {
     title: "Taman & Lansekap",
     description: "Percantik halaman rumah Anda dengan jasa perawatan taman dan lansekap.",
-    icon: "/icons/garden.svg",
+    icon: workflowIcons.wrench,
     href: "/layanan/taman-lansekap"
   },
   {
     title: "Instalasi",
     description: "Pasang berbagai peralatan rumah tangga dengan bantuan teknisi berpengalaman.",
-    icon: "/icons/installation.svg",
+    icon: workflowIcons.tools,
     href: "/layanan/instalasi"
   }
 ];
 
-export default function Home() {
+const stats = [
+  {
+    value: "10.000+",
+    label: "Pelanggan Puas",
+    icon: trustIcons.verified
+  },
+  {
+    value: "2.000+",
+    label: "Tukang Terverifikasi",
+    icon: trustIcons.verified
+  },
+  {
+    value: "15.000+",
+    label: "Proyek Selesai",
+    icon: workflowIcons.hammer
+  },
+  {
+    value: "4.9/5",
+    label: "Rating Kepuasan",
+    icon: trustIcons.quality
+  }
+];
+
+export default function HomePage() {
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-gradient-to-br from-red-50 via-white to-red-50">
       <Navbar />
       
       {/* Hero Section */}
-      <div className="relative isolate pt-14">
-        <div className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80">
-          <div
-            className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-primary to-primary-light opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
-            style={{
-              clipPath:
-                'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
-            }}
-          />
-        </div>
+      <div className="relative bg-white">
+        <div className="relative mx-auto max-w-7xl px-6 py-24 lg:flex lg:flex-col lg:items-center lg:px-8 lg:py-32">
+          <h1 className="text-center max-w-3xl mx-auto text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+            Temukan tukang profesional terbaik di sekitar Anda.
+          </h1>
+          <p className="mt-6 text-center text-lg text-gray-600 max-w-2xl mx-auto">
+            Berbagai kebutuhan rumah Anda memerlukan penanganan khusus. Kami hadir menghubungkan Anda dengan para ahlinya.
+          </p>
 
-        <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8 lg:py-40">
+          <div className="mt-10 flex items-center justify-center gap-4">
+            <Link 
+              href="/cari-layanan" 
+              className="inline-flex items-center gap-2 rounded-full bg-[#E31C25] px-8 py-3 text-base font-semibold text-white hover:bg-[#E31C25]/90 transition-all duration-200"
+            >
+              Cari Layanan Sekarang
+            </Link>
+          </div>
+
+          <div className="mt-16 relative mx-auto max-w-5xl w-full">
+            <div className="aspect-[16/9] overflow-hidden rounded-3xl bg-[#E31C25] shadow-2xl">
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="relative w-full max-w-[300px] mx-auto">
+        <Image
+                    src="/images/app/preview.png"
+                    alt="SerabutAja App Preview"
+                    width={300}
+                    height={600}
+                    className="relative z-10"
+          priority
+        />
+                  <div className="absolute -right-[400px] top-1/2 -translate-y-1/2">
+                    <Image
+                      src="/images/workers/tools/hammer.png"
+                      alt="Tools"
+                      width={500}
+                      height={500}
+                      className="rotate-12 drop-shadow-2xl"
+                    />
+                  </div>
+                  <div className="absolute -left-[400px] top-1/2 -translate-y-1/2">
+                    <Image
+                      src="/images/workers/tools/wrench.png"
+                      alt="Tools"
+                      width={500}
+                      height={500}
+                      className="-rotate-12 drop-shadow-2xl"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="absolute -bottom-8 left-8 bg-white rounded-2xl shadow-lg p-6 max-w-xs">
+              <div className="flex items-start gap-4">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#DCFCE7]">
+                  <Icon icon={workflowIcons.clock} className="h-6 w-6 text-[#166534]" />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-gray-900">Layanan On-demand</h3>
+                  <p className="mt-1 text-sm text-gray-600">Dapatkan bantuan tukang profesional kapanpun Anda butuhkan</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="absolute -bottom-8 right-8 bg-white rounded-2xl shadow-lg p-6 max-w-xs">
+              <div className="flex items-start gap-4">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#DCFCE7]">
+                  <Icon icon={trustIcons.verified} className="h-6 w-6 text-[#166534]" />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-gray-900">Tukang Terverifikasi</h3>
+                  <p className="mt-1 text-sm text-gray-600">Semua tukang telah melalui proses verifikasi ketat</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Why Choose Us Section */}
+      <div className="relative bg-red-50 py-24">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
-            <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-              Solusi Terpercaya untuk Kebutuhan Serabutan Anda
-            </h1>
-            <p className="mt-6 text-lg leading-8 text-gray-600">
-              SerabutAja hadir untuk membantu Anda menemukan tukang profesional untuk berbagai kebutuhan rumah dan bisnis Anda. Dari perbaikan, renovasi, hingga instalasi.
+            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl text-gray-900">
+              Mengapa Memilih <span className="text-red-600">SerabutAja?</span>
+            </h2>
+            <p className="mt-4 text-lg text-gray-600">
+              Platform terpercaya yang menghubungkan Anda dengan tukang profesional terverifikasi
+            </p>
+          </div>
+          
+          <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+            {[
+              {
+                title: "Tukang Terverifikasi",
+                description: "Semua tukang telah melalui proses verifikasi ketat untuk menjamin kualitas dan keamanan",
+                icon: "verified" as IconType
+              },
+              {
+                title: "Harga Transparan",
+                description: "Dapatkan estimasi biaya yang jelas sebelum pekerjaan dimulai, tanpa biaya tersembunyi",
+                icon: "payment" as IconType
+              },
+              {
+                title: "Garansi Pekerjaan",
+                description: "Setiap pekerjaan dijamin dengan garansi untuk memastikan kepuasan Anda",
+                icon: "secure" as IconType
+              },
+            ].map((feature) => (
+              <div key={feature.title} className="flex flex-col items-center text-center p-8 bg-white rounded-2xl shadow-lg">
+                <div className="flex h-16 w-16 items-center justify-center rounded-full bg-red-100">
+                  <Icon icon={feature.icon} className="h-8 w-8 text-red-600" />
+                </div>
+                <h3 className="mt-6 text-xl font-bold text-gray-900">{feature.title}</h3>
+                <p className="mt-4 text-base text-gray-600">{feature.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Stats Section */}
+      <div className="relative bg-red-600 py-24">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-2xl text-center">
+            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+              Dipercaya oleh Ribuan Pelanggan
+            </h2>
+            <p className="mt-4 text-lg text-red-100">
+              Bergabunglah dengan ribuan pelanggan yang telah mempercayakan kebutuhan mereka pada SerabutAja
+            </p>
+          </div>
+          
+          <div className="mx-auto mt-16 grid max-w-2xl grid-cols-2 gap-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-4">
+            {stats.map((stat) => (
+              <div key={stat.label} className="flex flex-col items-center">
+                <Icon icon={stat.icon} className="h-8 w-8 text-red-100" />
+                <p className="mt-4 text-3xl font-bold tracking-tight text-white">{stat.value}</p>
+                <p className="text-base text-red-100">{stat.label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* CTA Section */}
+      <div className="relative bg-white py-24">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-2xl text-center">
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+              Siap Memulai Proyek Anda?
+            </h2>
+            <p className="mt-4 text-lg text-gray-600">
+              Temukan tukang profesional yang tepat untuk kebutuhan Anda sekarang
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
-              <Link
-                href="/layanan"
-                className="rounded-md bg-primary px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-primary-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+              <Link 
+                href="/cari-tukang" 
+                className="rounded-xl bg-red-600 px-8 py-4 text-xl font-bold text-white shadow-lg hover:bg-red-700 active:bg-red-800 hover:scale-[1.02] transition-all duration-200"
               >
-                Lihat Layanan
+                Cari Tukang
               </Link>
-              <Link href="/tentang" className="text-sm font-semibold leading-6 text-gray-900">
-                Pelajari Lebih Lanjut <span aria-hidden="true">→</span>
+              <Link 
+                href="/cara-kerja" 
+                className="text-lg font-semibold text-gray-900 hover:text-red-600 transition-colors duration-200"
+              >
+                Pelajari Cara Kerja
+                <Icon 
+                  icon={navigationIcons.next}
+                  className="ml-2 w-5 h-5 inline-block" 
+                />
               </Link>
             </div>
           </div>
         </div>
-
-        <div className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]">
-          <div
-            className="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-primary to-primary-light opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]"
-            style={{
-              clipPath:
-                'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
-            }}
-          />
-        </div>
       </div>
 
-      {/* Featured Services Section */}
-      <section className="py-24 bg-gray-50">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      {/* Layanan Unggulan Section */}
+      <div className="relative py-24 overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(#EE312410_1px,transparent_1px)] [background-size:20px_20px]"></div>
+        
+        {/* Decorative elements */}
+        <div className="absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 w-96 h-96">
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/30 to-transparent rounded-full blur-3xl"></div>
+        </div>
+        
+        <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            <h2 className="text-3xl font-bold tracking-tight sm:text-5xl bg-clip-text text-transparent bg-gradient-to-r from-primary via-red-600 to-primary">
               Layanan Unggulan Kami
             </h2>
             <p className="mt-6 text-lg leading-8 text-gray-600">
               Temukan berbagai layanan profesional untuk membantu menyelesaikan pekerjaan Anda dengan cepat dan berkualitas
             </p>
           </div>
-          <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-6 sm:gap-8 lg:mt-20 lg:max-w-none lg:grid-cols-4">
+
+          <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-4">
             {featuredServices.map((service) => (
               <ServiceCard
                 key={service.title}
-                title={service.title}
-                description={service.description}
-                icon={service.icon}
-                href={service.href}
+                {...service}
               />
             ))}
           </div>
         </div>
-      </section>
+      </div>
 
-      {/* How It Works Section */}
-      <section className="py-24">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-              Cara Kerja SerabutAja
-            </h2>
-            <p className="mt-6 text-lg leading-8 text-gray-600">
-              Dapatkan bantuan profesional dengan mudah melalui 4 langkah sederhana
-            </p>
-          </div>
-
-          <div className="mx-auto mt-16 max-w-5xl">
-            <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
-              {/* Step 1 */}
-              <div className="relative pl-16">
-                <div className="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-full bg-primary">
-                  <span className="text-lg font-semibold text-white">1</span>
-                </div>
-                <h3 className="text-lg font-semibold text-gray-900">Pilih Layanan</h3>
-                <p className="mt-2 text-gray-600">
-                  Pilih jenis layanan yang Anda butuhkan dari berbagai kategori yang tersedia
-                </p>
+      {/* Features Section */}
+      <div className="relative bg-[#E31C25] text-white overflow-hidden">
+        <div className="relative mx-auto max-w-7xl px-6 py-24 lg:px-8">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-3xl font-bold sm:text-4xl">
+                Bagaimana SerabutAja membantu Anda?
+              </h2>
+              <div className="mt-12 space-y-8">
+                {[
+                  {
+                    title: "Layanan On-demand",
+                    description: "Dapatkan bantuan tukang profesional kapanpun Anda butuhkan",
+                    icon: workflowIcons.clock
+                  },
+                  {
+                    title: "Lacak Progress Pekerjaan",
+                    description: "Pantau status dan riwayat pekerjaan dengan mudah",
+                    icon: workflowIcons.schedule
+                  },
+                  {
+                    title: "Penjadwalan Otomatis",
+                    description: "Atur jadwal dan dapatkan pengingat untuk setiap pekerjaan",
+                    icon: workflowIcons.schedule
+                  }
+                ].map((feature, index) => (
+                  <div key={feature.title} className="flex items-start gap-4">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white">
+                      <Icon icon={feature.icon} className="h-5 w-5 text-[#E31C25]" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold">{feature.title}</h3>
+                      <p className="mt-2 text-white">{feature.description}</p>
+                    </div>
+                  </div>
+                ))}
               </div>
-
-              {/* Step 2 */}
-              <div className="relative pl-16">
-                <div className="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-full bg-primary">
-                  <span className="text-lg font-semibold text-white">2</span>
-                </div>
-                <h3 className="text-lg font-semibold text-gray-900">Isi Detail</h3>
-                <p className="mt-2 text-gray-600">
-                  Berikan informasi tentang pekerjaan yang perlu dilakukan
-                </p>
-              </div>
-
-              {/* Step 3 */}
-              <div className="relative pl-16">
-                <div className="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-full bg-primary">
-                  <span className="text-lg font-semibold text-white">3</span>
-                </div>
-                <h3 className="text-lg font-semibold text-gray-900">Terima Penawaran</h3>
-                <p className="mt-2 text-gray-600">
-                  Dapatkan penawaran dari tukang profesional terverifikasi
-                </p>
-              </div>
-
-              {/* Step 4 */}
-              <div className="relative pl-16">
-                <div className="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-full bg-primary">
-                  <span className="text-lg font-semibold text-white">4</span>
-                </div>
-                <h3 className="text-lg font-semibold text-gray-900">Pekerjaan Selesai</h3>
-                <p className="mt-2 text-gray-600">
-                  Tukang akan datang dan menyelesaikan pekerjaan sesuai kesepakatan
-                </p>
+            </div>
+            <div className="relative">
+              <div className="aspect-[9/16] overflow-hidden rounded-3xl bg-[#E31C25]/80">
+            <Image
+                  src="/images/app/features-preview.png"
+                  alt="SerabutAja App Features"
+                  width={300}
+                  height={600}
+                  className="w-full h-full object-cover"
+                  priority
+                />
               </div>
             </div>
           </div>
         </div>
-      </section>
-
-      {/* Stats Section */}
-      <section className="relative bg-primary py-24">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-              Dipercaya oleh Ribuan Pelanggan
-            </h2>
-            <p className="mt-6 text-lg leading-8 text-white/80">
-              SerabutAja telah membantu menyelesaikan berbagai pekerjaan dengan kualitas terbaik
-            </p>
-          </div>
-
-          <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 text-center lg:max-w-none lg:grid-cols-4">
-            <div>
-              <div className="text-4xl font-bold tracking-tight text-white">5000+</div>
-              <div className="mt-4 text-base text-white/80">Pelanggan Puas</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold tracking-tight text-white">1000+</div>
-              <div className="mt-4 text-base text-white/80">Tukang Profesional</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold tracking-tight text-white">8000+</div>
-              <div className="mt-4 text-base text-white/80">Proyek Selesai</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold tracking-tight text-white">4.8/5</div>
-              <div className="mt-4 text-base text-white/80">Rating Kepuasan</div>
-            </div>
-          </div>
-        </div>
-      </section>
+      </div>
 
       {/* Testimonials Section */}
-      <section className="py-24 bg-gray-50">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <section className="relative py-24 overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(#EE312410_1px,transparent_1px)] [background-size:20px_20px]"></div>
+        
+        <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            <h2 className="text-3xl font-bold tracking-tight sm:text-5xl bg-clip-text text-transparent bg-gradient-to-r from-primary via-red-600 to-primary">
               Apa Kata Mereka?
             </h2>
             <p className="mt-6 text-lg leading-8 text-gray-600">
@@ -213,7 +339,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-6 sm:gap-8 lg:mt-20 lg:max-w-none lg:grid-cols-3">
+          <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
             <TestimonialCard
               content="Sangat puas dengan layanan tukang dari SerabutAja. Pekerjaannya rapi dan sesuai dengan yang diharapkan. Proses pemesanan juga sangat mudah!"
               author="Budi Santoso"
@@ -233,8 +359,10 @@ export default function Home() {
               rating={4}
             />
           </div>
-        </div>
+    </div>
       </section>
+
+      <Footer />
     </main>
   );
 }

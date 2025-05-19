@@ -11,68 +11,77 @@ const navigation = [
   { name: 'Layanan', href: '/layanan' },
   { name: 'Tentang Kami', href: '/tentang' },
   { name: 'Kontak', href: '/kontak' },
+  { name: 'FAQ', href: '/faq' },
 ]
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 bg-white">
-      <nav className="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
+    <header className="fixed inset-x-0 top-0 z-50 bg-white/95 backdrop-blur-sm shadow-md">
+      <nav className="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-8" 
+        aria-label="Global">
+        <div className="absolute inset-0 bg-white shadow-md -z-10"></div>
+        
         <div className="flex lg:flex-1">
-          <Link href="/" className="-m-1.5 p-1.5">
+          <Link href="/" className="-m-1.5 p-1.5 group">
             <span className="sr-only">SerabutAja</span>
             <Image
               src="/logo.png"
               alt="SerabutAja Logo"
-              width={150}
+              width={120}
               height={40}
-              className="h-8 w-auto"
+              className="transform transition-transform duration-300 group-hover:scale-105"
             />
           </Link>
         </div>
+        
         <div className="flex lg:hidden">
           <button
             type="button"
             className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
             onClick={() => setMobileMenuOpen(true)}
           >
-            <span className="sr-only">Buka menu utama</span>
+            <span className="sr-only">Buka menu</span>
             <Bars3Icon className="h-6 w-6" aria-hidden="true" />
           </button>
         </div>
-        <div className="hidden lg:flex lg:gap-x-12">
+        
+        <div className="hidden lg:flex lg:gap-x-8">
           {navigation.map((item) => (
             <Link
               key={item.name}
               href={item.href}
-              className="text-sm font-semibold leading-6 text-gray-900 hover:text-primary"
+              className="relative text-sm font-semibold leading-6 text-gray-900 transition-colors duration-300 hover:text-[#E31C25] group"
             >
               {item.name}
+              <span className="absolute inset-x-0 -bottom-2 h-0.5 bg-[#E31C25] scale-x-0 transition-transform duration-300 group-hover:scale-x-100" />
             </Link>
           ))}
         </div>
+        
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <Link
             href="/login"
-            className="text-sm font-semibold leading-6 text-gray-900 hover:text-primary"
+            className="relative inline-flex items-center gap-2 rounded-full bg-[#E31C25] px-6 py-2 text-sm font-semibold text-white shadow-sm transition-all duration-300 hover:bg-[#E31C25]/90 hover:scale-105"
           >
-            Masuk <span aria-hidden="true">&rarr;</span>
+            Masuk
+            <span aria-hidden="true" className="transform transition-transform duration-300 group-hover:translate-x-1">→</span>
           </Link>
         </div>
       </nav>
+
       <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
         <div className="fixed inset-0 z-50" />
-        <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+        <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white/90 backdrop-blur-xl px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
             <Link href="/" className="-m-1.5 p-1.5">
               <span className="sr-only">SerabutAja</span>
               <Image
                 src="/logo.png"
                 alt="SerabutAja Logo"
-                width={150}
+                width={120}
                 height={40}
-                className="h-8 w-auto"
               />
             </Link>
             <button
@@ -91,16 +100,17 @@ export default function Navbar() {
                   <Link
                     key={item.name}
                     href={item.href}
-                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                    className="group -mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-primary/5 transition-colors duration-300"
                   >
                     {item.name}
+                    <span className="inline-block transform transition-transform duration-300 group-hover:translate-x-1">→</span>
                   </Link>
                 ))}
               </div>
               <div className="py-6">
                 <Link
                   href="/login"
-                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                  className="block rounded-full bg-primary px-6 py-3 text-center text-sm font-semibold text-white shadow-lg hover:bg-primary/90 transition-all duration-300"
                 >
                   Masuk
                 </Link>
