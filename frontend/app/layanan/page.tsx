@@ -68,11 +68,6 @@ export default function LayananPage() {
       
       {/* Hero Section with Elegant Background */}
       <div className="relative overflow-hidden bg-gradient-to-br from-white via-gray-50 to-slate-100">
-        {/* Decorative elements */}
-        <div className="absolute inset-0">
-          <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-gray-200 to-slate-300 rounded-full mix-blend-multiply filter blur-xl opacity-40"></div>
-          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-slate-200 to-gray-300 rounded-full mix-blend-multiply filter blur-xl opacity-40"></div>
-        </div>
         
         <div className="relative mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">

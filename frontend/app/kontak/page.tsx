@@ -80,7 +80,7 @@ export default function KontakPage() {
           </div>
           <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
             <div className="mx-auto max-w-2xl text-center">
-              <h1 className="text-4xl p-3 font-bold tracking-tight sm:text-6xl bg-clip-text text-transparent bg-gradient-to-r from-[#E31C25] via-red-700 to-slate-800">
+              <h1 className="text-4xl p-3 font-bold tracking-tight sm:text-6xl bg-clip-text text-transparent bg-[#E31C25]">
               Hubungi Kami
               </h1>
               <p className="mt-6 text-lg leading-8 text-gray-700 font-medium">
