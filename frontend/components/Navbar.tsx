@@ -9,7 +9,6 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 const navigation = [
   { name: 'Beranda', href: '/' },
   { name: 'Layanan', href: '/layanan' },
-  { name: 'Tentang Kami', href: '/tentang' },
   { name: 'Kontak', href: '/kontak' },
   { name: 'FAQ', href: '/faq' },
 ]
