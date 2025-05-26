@@ -283,7 +283,7 @@ export default function KontakPage() {
                   </div>
                   <div className="ml-4">
                     <h3 className="text-sm font-semibold text-gray-700">Telepon / WhatsApp</h3>
-                    <span className="text-lg text-gray-700">+62 812-3456-7890</span>
+                    <span className="text-lg text-gray-700">+62 822-8132-8658</span>
                   </div>
                 </div>
                 
@@ -295,7 +295,7 @@ export default function KontakPage() {
                   </div>
                   <div className="ml-4">
                     <h3 className="text-sm font-semibold text-gray-700">Email</h3>
-                    <span className="text-lg text-gray-700">info@serabutaja.com</span>
+                    <span className="text-lg text-gray-700">Serabut.aja@gmail.com</span>
                   </div>
                 </div>
                 
@@ -309,7 +309,7 @@ export default function KontakPage() {
                   <div className="ml-4">
                     <h3 className="text-sm font-semibold text-gray-700">Alamat</h3>
                     <span className="text-lg text-gray-700">
-                      Jl. Harapan Jaya No. 3KV, Kota Bandar Lampung, Lampung 35313
+                      Jl. Terusan Ryacudu, Way Huwi, Kec. Jati Agung, Kabupaten Lampung Selatan, Lampung 35365
                     </span>
                   </div>
                 </div>
